@@ -7,7 +7,7 @@ const Header = {
                     <img src="http://static.ybox.vn/2020/2/0/1582473564897-Poly.png" alt="" width="120px">
                     </a>
                 </figure>
-                <form action="" class="w-96 mx-[150px] pt-5 flex">
+                <form action="" class="w-96 mx-[130px] pt-5 flex">
                     <input type="text" class="w-[90%] h-10 pl-2" placeholder="Tìm kiếm sản phẩm...">
                     <input type="submit" value="Tìm kiếm" class="border-2 max-h-10 text-white px-3 hover:text-red-200">
                     <!-- <button class="h-9" type="submit"><a href="" class="border-2"><i class="fas fa-search text-white"></i></a></button>  -->
