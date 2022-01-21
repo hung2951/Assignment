@@ -13,19 +13,19 @@ const Header = {
                     <!-- <button class="h-9" type="submit"><a href="" class="border-2"><i class="fas fa-search text-white"></i></a></button>  -->
                 </form>
                 <div class="phone-sp flex mt-3 border-r-2 pr-4 max-h-[60px]">
-                    <p><i class="fas fa-phone-alt text-white pr-3 pt-5"></i></p>
+                    <p><i class="fas fa-phone-alt text-white px-3 pt-5"></i></p>
                     <div class="text-white">
                     <p>Hotline hỗ trợ</p>
                     <span><a href="#" class="text-xl">1900 999 111</a></span>
                     </div>
                 </div>
-                <div class="sign-in border-r-2 mt-3 px-8 max-h-[60px] text-white">
+                <div class="sign-in border-r-2 mt-3 px-5 max-h-[60px] text-white">
                     <a href="/signin">
                         <p class="text-center"><i class="fas fa-user-circle fa-2x"></i></p>
                         <p class="hover:text-red-300 duration-300">Đăng nhập</p>
                     </a>
                 </div>
-                <div class="cart pt-5 text-white pl-5">
+                <div class="cart pt-5 text-white px-5 mx-5">
                     <a href="#"><i class="fas fa-cart-plus fa-2x"></i></a>
                 </div>
         </header>
