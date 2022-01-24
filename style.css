@@ -9,7 +9,7 @@ header{
     @apply flex;
 }
 footer h3{
-    @apply uppercase text-xl font-bold ;
+    @apply uppercase text-lg font-bold ;
 }
 #border{
     @apply w-4/12  border-b mb-5 mt-1;
@@ -18,14 +18,45 @@ footer div{
     @apply text-sm;
 }
 #phone{
-    @apply font-bold hover:text-red-700 hover:duration-500;
+    @apply font-bold hover:text-[#0b8c5d] hover:duration-500;
 }
 .info-sp p{
-    @apply hover:text-red-700 hover:duration-500 leading-7;
+    @apply hover:text-[#0b8c5d] hover:duration-500 leading-7;
 }
 .address{
     @apply pr-5
 }
 .address p{
     @apply leading-7;
+}
+.nav-bar{
+    @apply text-center group-hover:text-[#00ccaa] uppercase inline-block;
+}
+.menu-item{
+    @apply text-black pl-5 pt-5;
+}
+.menu-item-title{
+    @apply font-bold text-base pb-4;
+}
+.menu-item-info li a{
+    @apply hover:text-[#002c25] hover:text-base hover:font-bold duration-200;
+}
+
+.apple-product-item-title a p{
+    @apply hover:text-[#0041cc] px-2 pb-2 font-bold;
+}
+.apple-product-item-title span{
+    @apply text-red-500 font-bold text-xl;
+}
+.apple-product-item-img{
+    @apply overflow-hidden;
+}
+.apple-product-item-img img{
+    @apply group-hover:scale-105 group-hover:duration-500;
+}
+.apple-title{
+    @apply uppercase pl-5 mt-10 mb-5 text-white bg-[#002c25] h-10 leading-10 text-xl rounded-lg;
+}
+.product-sale-item-title a p{
+    @apply hover:text-[#0041cc] px-2 pb-2 font-bold;
 }
