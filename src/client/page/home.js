@@ -1,8 +1,8 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 const Home = {
-    print(){
-        return /*html*/ `
+  print() {
+    return /*html*/ `
         <div class="bg-[#0b8c5d]">
             ${Header.print()}
             <main class="w-[1200px] mx-auto ">
@@ -153,17 +153,90 @@ const Home = {
                     </div>
                   </div>
                   
-                </div>
-        
-                
+                </div>             
               </div>
             </div>
-           
+            <div class="accessory">
+              <div class="accessory-title">
+                <p><i class="fas fa-keyboard"></i> Phụ kiện</p>
+              </div>
+              <div class="bg-white rounded-lg grid grid-cols-8 px-10 pt-10 pb-10 gap-10">
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+                <div class="text-center group">
+                  <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg mt-5 flex justify-around">
+              <div class="flex my-5">
+                <p class="text-[#0b8d5d] "><i class="fas fa-check-double fa-3x"></i></p>
+                <p class="block pl-4 text-sm">Sản phẩm <br><span class="font-bold text-xl uppercase">chính hãng</span></p>
+              </div>
+              <div class="flex my-5">
+              <p class="text-[#0b8d5d] "><i class="fas fa-truck fa-3x"></i></p>
+              <p class="block pl-4 text-sm">Miễn phí vận chuyển <br><span class="font-bold text-xl uppercase">toàn quốc</span></p>
+              </div>
+              <div class="flex my-5">
+              <p class="text-[#0b8d5d] "><i class="fas fa-phone-alt fa-3x"></i></p>
+              <p class="block pl-4 text-sm">Hotline hỗ trợ <br><span class="font-bold text-xl uppercase">1900.999.111</span></p>
+              </div>
+              
+            </div>
           </main>
         
             ${Footer.print()}
             </div>
         `
-    }
+  }
 }
 export default Home;

@@ -54,9 +54,18 @@ footer div{
 .apple-product-item-img img{
     @apply group-hover:scale-105 group-hover:duration-500;
 }
-.apple-title{
-    @apply uppercase pl-5 mt-10 mb-5 text-white bg-[#002c25] h-10 leading-10 text-xl rounded-lg;
+.apple-title, .accessory-title{
+    @apply uppercase pl-5 mt-10 mb-5 text-white bg-[#00483d] h-10 leading-10 text-xl rounded-lg;
 }
 .product-sale-item-title a p{
     @apply hover:text-[#0041cc] px-2 pb-2 font-bold;
+}
+.accessory-item-name{
+    @apply text-sm group-hover:text-[#0b8c5d];
+}
+.accessory-item-icon{
+    @apply text-[#002c25e0] bg-[#ececec] rounded-lg mb-2 group-hover:bg-white group-hover:border group-hover:border-[#0b8c5d];
+}
+.accessory-item-icon i{
+    @apply py-5;
 }
