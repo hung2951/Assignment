@@ -41,7 +41,6 @@ footer div{
 .menu-item-info li a{
     @apply hover:text-[#002c25] hover:text-base hover:font-bold duration-200;
 }
-
 .apple-product-item-title a p{
     @apply hover:text-[#0041cc] px-2 pb-2 font-bold;
 }
