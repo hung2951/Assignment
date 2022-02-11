@@ -1,27 +1,33 @@
+import { signin } from "../../api/user";
 
 const SignIn = {
-    print() {
+    async print() {
         return /*html*/ `
-            <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-md w-full space-y-8">
-            <div>  
-                <h2 class="mt-6 text-center text-3xl font-extrabold text-[#00483d]">
-                Đăng nhập tài khoản
-                </h2>
-            </div>
-            <form class="mt-8 space-y-6" action="#" method="POST">
-                <input type="hidden" name="remember" value="true">
-                <div class="rounded-md shadow-sm -space-y-px">
-                <div>
-                    <label for="email-address" class="sr-only">Địa chỉ Email</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Địa chỉ Email">
-                </div>
-                <div>
-                    <label for="password" class="sr-only">Mật khẩu</label>
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Mật khẩu">
-                </div>
-                </div>
-        
+            <div class="bg-[url('https://stockdep.net/files/images/31496568.jpg')]">
+        <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 ">
+          <!-- Replace with your content -->
+          <div class="px-4 pt-6 sm:px-0">
+            <div class="min-h-full grid grid-cols-2 px-4 sm:px-6 lg:px-8">
+              <div>
+                <img src="https://picsum.photos/700/800">
+              </div>
+              <div class="w-full space-y-8 bg-white bg-opacity-50">
+                <form class="max-w-sm space-y-6 mx-auto pt-20 " id="formSignIn">
+                  <div class="rounded-md shadow-sm -space-y-px">
+                  <div class="text-center text-xl font-bold">
+                    Đăng nhập
+                  </div>
+                  <div>
+                    <label for="email" class="pl-1 pb-5 font-bold text-[#1a1a1a]">Địa chỉ email:</label>
+                    <input id="email" name="email" type="email" required
+                      class="border border-[#ccc] block w-full pl-2 h-10 rounded-sm my-2" placeholder="Địa chỉ email">
+                  </div>
+                  <div>
+                    <label for="password" class="pl-1 pb-5 font-bold text-[#1a1a1a]">Mật khẩu:</label>
+                    <input id="password" name="password" type="password" required
+                      class="border border-[#ccc] block w-full pl-2 h-10 rounded-sm my-2" placeholder="Mật khẩu">
+                  </div>                 
+                </div>  
                 <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-[#075549] focus:ring-[#075549] border-gray-300 rounded">
@@ -35,25 +41,49 @@ const SignIn = {
                     Quên mật khẩu?
                     </a>
                 </div>
-                </div>
-        
-                <div>
-                <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#075549] hover:bg-[#00483d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                    <!-- Heroicon name: solid/lock-closed -->
-                    <svg class="h-5 w-5 text-[#00483d] group-hover:text-[#00483d]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-                    </svg>
-                    </span>
-                    Đăng nhập
-                </button>
-                </div>
-                <div class="text-center">
-                    <p>Bạn chưa có tài khoản?<a href="/signup" class="text-[#00483d]"> Đăng ký</a></p>
-                </div>
-            </form>
+                </div>             
+                  <div>
+                    <p id="checkUser" class="text-red-600 mb-5 mt-0"></p> 
+                      <button class="mt-5 bg-[#111b27] text-white w-40 h-10 border-4 bg-opacity-80 border-white">
+                        Đăng nhập
+                      </button>
+                   <div class="text-center pt-5">
+                      <p>Bạn chưa có tài khoản?<a href="/signup" class="text-[#075549]"> Đăng ký</a></p>
+                  </div>
+                  </div>
+                </form>
+              </div>
             </div>
+            <!-- /End replace -->
+          </div>
+        </div>
+            
+          </form>
+        </div>
         `
+    },
+    afterRender() {
+        const formSignIn = document.querySelector("#formSignIn");
+        formSignIn.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            // call api
+            try {
+                const { data } = await signin({
+                    email: document.querySelector("#email").value,
+                    password: document.querySelector("#password").value,
+                })
+                localStorage.setItem('user', JSON.stringify(data.user))
+                if (data.user.role == 1) {
+                    window.location.href = "/admin";
+                } else {
+                    window.location.href = "/";
+                }
+
+            } catch (error) {
+                document.querySelector("#checkUser").innerHTML = "Tài khoản hoặc mật khẩu không chính xác"
+            }
+
+        });
     }
 }
 export default SignIn;

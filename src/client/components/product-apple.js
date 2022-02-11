@@ -7,7 +7,7 @@ const Apple={
                 <div class="grid grid-cols-4 gap-5 mb-10 ">
                   <div class="group apple-product-item w-fit rounded-lg bg-white text-center">
                     <div class="apple-product-item-img py-5">
-                      <a href="">
+                      <a href="/detail">
                         <img class="w-[300px] mx-auto"
                           src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/10/14/637382632990998957_ip-12-xanhduong-1.png">
                       </a>

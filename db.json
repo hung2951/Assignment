@@ -1,0 +1,43 @@
+{
+  "users": [
+    {
+      "email": "rom1@gmail.com",
+      "password": "$2a$10$3UmCOsvrMVGPfAOPG3XFQehqPrOHwqenpcXTucDEpKWWIWLxCT6Am",
+      "username": "Văn Hùng",
+      "role": "0",
+      "id": 5
+    },
+    {
+      "email": "admin1@gmail.com",
+      "password": "$2a$10$n9P8UjAqY2QDKxpCLoRNgOBbuCfiR0fdryaAp7zfxL1yDIXo6VT1e",
+      "username": "admin",
+      "role": "1",
+      "id": 6
+    },
+    {
+      "email": "khachhang@gmail.com",
+      "password": "$2a$10$KwWHodVss.1UCOF47WZcGurpm.1yQlrRa6g.LkMbyoLhJyA.g4lJu",
+      "username": "baviet1",
+      "role": "0",
+      "id": 7
+    },
+    {
+      "email": "hungtv290501@gmail.com",
+      "password": "$2a$10$WN3/UefcLAzHX7Jr38kBT..hZAMb.DK0Z9tdRsjE.VsmxGG9y5jJe",
+      "username": "hùng",
+      "role": "0",
+      "id": 8
+    }
+  ],
+  "products": [],
+  "phones": [
+    {
+      "name": "sam sung",
+      "id": 1
+    },
+    {
+      "name": "sam sung",
+      "id": 2
+    }
+  ]
+}
