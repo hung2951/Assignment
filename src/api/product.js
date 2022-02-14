@@ -13,3 +13,11 @@ export const add = (post) => {
     const url = `/products`;
     return instance.post(url, post);
 }
+export const remove = (id) => {
+    const url = `products/${id}`;
+    return instance.delete(url);
+}
+export const update = (product) => {
+    const url = `products/${product.id}`;
+    return instance.put(url, product);
+}

@@ -1,8 +1,9 @@
 import { signin } from "../../api/user";
-
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 const SignIn = {
-    async print() {
-        return /*html*/ `
+  async print() {
+    return /*html*/ `
             <div class="bg-[url('https://stockdep.net/files/images/31496568.jpg')]">
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 ">
           <!-- Replace with your content -->
@@ -61,29 +62,35 @@ const SignIn = {
           </form>
         </div>
         `
-    },
-    afterRender() {
-        const formSignIn = document.querySelector("#formSignIn");
-        formSignIn.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            // call api
-            try {
-                const { data } = await signin({
-                    email: document.querySelector("#email").value,
-                    password: document.querySelector("#password").value,
-                })
-                localStorage.setItem('user', JSON.stringify(data.user))
-                if (data.user.role == 1) {
-                    window.location.href = "/admin";
-                } else {
-                    window.location.href = "/";
-                }
+  },
+  afterRender() {
+    const formSignIn = document.querySelector("#formSignIn");
+    formSignIn.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      // call api
+      try {
+        const { data } = await signin({
+          email: document.querySelector("#email").value,
+          password: document.querySelector("#password").value,
+        })
 
-            } catch (error) {
-                document.querySelector("#checkUser").innerHTML = "Tài khoản hoặc mật khẩu không chính xác"
+        if (data) {
+          toastr.success("Đăng nhập thành công");
+          localStorage.setItem('user', JSON.stringify(data.user));
+          setTimeout(function () {
+            if (data.user.role == 1) {
+              window.location.href = "/admin";
+            } else {
+              window.location.href = "/";
             }
+          }, 1000)
+        }
+      } catch (error) {
+        toastr.error("Đăng nhập thất bại!");
+        document.querySelector("#checkUser").innerHTML = "Tài khoản hoặc mật khẩu không chính xác"
+      }
 
-        });
-    }
+    });
+  }
 }
 export default SignIn;

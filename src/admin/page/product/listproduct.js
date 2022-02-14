@@ -1,7 +1,8 @@
-import { getAll, remove } from "../../../api/user";
+import { getAll, remove } from "../../../api/product";
 import { reRender } from "../../../utils";
 import HeaderAdmin from "../../components/header";
-const listUser = {
+
+const listProduct = {
   async print() {
     const { data } = await getAll();
     return /*html*/ `
@@ -9,16 +10,16 @@ const listUser = {
             ${HeaderAdmin.print()}
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <h1 class="text-3xl font-bold text-gray-900">
-                    Danh sách tài khoản
+                    Danh sách sản phẩm
                 </h1>
             </div>
             </header>
             <main>
                 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
                     <!-- Replace with your content -->
-                    <a href="/admin/signup" class="hover:text-blue-700 underline text-lg">Thêm tài khoản</a>
+                    <a href="/admin/add-product" class="hover:text-blue-700 underline text-lg">Thêm sản phẩm</a>
                     <div class="px-4 py-6 sm:px-0">
-                        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96">
+                        <div class="">
                         <div class="flex flex-col mt-5">
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                           <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -30,13 +31,14 @@ const listUser = {
                                       STT
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                      Họ và tên
+                                      Ảnh
                                     </th>
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                      Email
+                                      Tên sản phẩm
                                     </th>
+                                   
                                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                      Vai trò
+                                      Giá
                                     </th>
                                     
                                   </tr>
@@ -46,15 +48,17 @@ const listUser = {
                                     <tr>
                                     <td class="px-6">${index + 1}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">${post.username}</div>
+                                        <img src="${post.img}" width="130px">
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">${post.email}</div>
+                                        <div class="text-sm text-gray-900">${post.name}</div>
                                     </td>
+                                    
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">${post.role == 0 ? "Khách hàng" : "Quản trị"}</div>
-                                    </td>      
+                                        <div class="text-sm text-gray-900">${post.price} <u>đ</u></div>
+                                    </td>   
                                     <td>
+                                      <button class="hover:text-blue-600 underline text-sm"><a href="/admin/product/edit/${post.id}">Sửa</a></button>
                                       <button data-id=${post.id} class="btn hover:text-red-600 underline text-sm">Xóa</button>
                                     </td>
                                     </tr>
@@ -75,6 +79,7 @@ const listUser = {
         `
   },
   afterRender() {
+
     // lấy toàn bộ danh sách button có class là .btn
     const buttons = document.querySelectorAll('.btn');
     // tạo vòng lặp để lấy ra từng button
@@ -87,7 +92,7 @@ const listUser = {
         const confirm = window.confirm("Bạn có chắc chắn muốn xóa không?");
         if (confirm) {
           remove(id).then(() => {
-            reRender(listUser, "#app");
+            reRender(listProduct, "#app");
           });
         }
       })
@@ -95,4 +100,4 @@ const listUser = {
   }
 }
 
-export default listUser;
+export default listProduct;

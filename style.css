@@ -68,3 +68,26 @@ footer div{
 .accessory-item-icon i{
     @apply py-5;
 }
+
+.category{
+    @apply mx-20 max-w-xl
+}
+.category form button,.btn-formCates{
+    @apply bg-[#111b27] text-white w-1/5 h-10 border-4 bg-opacity-50 border-gray-600
+}
+.category form input{
+    @apply h-10 pl-3 rounded-sm w-4/5
+}
+
+#formAddProduct input, select,#formEditProduct input, select{
+    @apply block border border-black pl-3 my-2 w-2/4 rounded-sm h-10;
+}
+#formAddProduct button,#formEditProduct button{
+    @apply bg-black text-white w-32 h-10 border-4 border-gray-600 hover:border-black hover:bg-gray-600 transition-all
+}
+#formAddProduct-img,#formEditProduct-img{
+    @apply flex border-none py-5
+}
+#formAddProduct-img input,#formEditProduct-img input{
+    @apply border-none
+}

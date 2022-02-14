@@ -1,11 +1,12 @@
-
 import Logo from "./logo";
 import Navbar from "./navbar";
-
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
+import { reRender } from "../../utils";
 const Header = {
-  print() {
+  async print() {
     return /*html*/ `
-        <header class="mb-5">
+        
         <div class="bg-[#00483d] rounded-b-lg flex justify-evenly w-[1200px] m-auto mb-4 h-[90px]">
           ${Logo.print()}
           <form action="" class="w-96 pt-5 flex">
@@ -38,17 +39,17 @@ const Header = {
                     <p class="text-center"><i class="fas fa-user-circle fa-2x"></i></p>
                     <p class="capitalize text-center" id="username"></p>      
                   </a>
-                  <a href="" class="absolute mt-5 text-center rounded-sm h-8 leading-8 hover:text-[#083a32] w-full group-hover:mt-0 transition-all opacity-0 text-black group-hover:opacity-100 bg-white" id="logout">
+                  <button class="absolute mt-5 text-center rounded-sm h-8 leading-8 hover:text-[#083a32] w-full group-hover:mt-0 transition-all opacity-0 text-black group-hover:opacity-100 bg-white" id="logout">
                     Đăng xuất
-                  </a>
+                  </button>
                 `:/*html*/`
                     <a href="">
                     <p class="text-center"><i class="fas fa-user-circle fa-2x"></i></p>
                     <p class="capitalize text-center" id="username"></p>      
                     </a>
-                    <a href="" class="absolute mt-5 text-center rounded-sm h-8 leading-8 hover:text-[#083a32] w-full group-hover:mt-0 transition-all opacity-0 text-black group-hover:opacity-100 bg-white" id="logout">
+                    <button class="absolute mt-5 text-center rounded-sm h-8 leading-8 hover:text-[#083a32] w-full group-hover:mt-0 transition-all opacity-0 text-black group-hover:opacity-100 bg-white" id="logout">
                       Đăng xuất
-                    </a> 
+                    </button> 
                 `}                    
                   
                 </div>
@@ -61,9 +62,7 @@ const Header = {
               `}
           </div>
         </div>
-        ${Navbar.print()}
-    
-      </header>
+        ${await Navbar.print()}
         `
   },
   afterRender() {
@@ -71,11 +70,10 @@ const Header = {
     const logout = document.querySelector("#logout");
     username.innerHTML = JSON.parse(localStorage.getItem('user')).username;
     logout.addEventListener("click", () => {
-      const confirm = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
-      if (confirm) {
-        localStorage.removeItem("user");
-      }
 
+      toastr.success("Đã đăng xuất");
+      localStorage.removeItem("user");
+      reRender(Header, "header")
     })
   }
 }

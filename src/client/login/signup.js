@@ -1,5 +1,6 @@
 import { signup } from "../../api/user";
-
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 const SignUp = {
   async print() {
     return /*html*/`
@@ -65,20 +66,26 @@ const SignUp = {
   },
   afterRender() {
     const formSignUp = document.querySelector("#formSignUp");
-    formSignUp.addEventListener("submit", (e) => {
+    formSignUp.addEventListener("submit", async (e) => {
       e.preventDefault();
       // call api
-      signup({
-        username: document.querySelector("#username").value,
-        email: document.querySelector("#email").value,
-        password: document.querySelector("#password").value,
-        role: document.querySelector("#role").value,
-      })
-        .then(res => window.confirm("Đăng ký thành công"))
-        .then(res => window.location.href = "/signin")
-        .catch(
-          res => document.querySelector("#checkUser").innerHTML = "Tài khoản đã tồn tại"
-        )
+      try {
+        const { data } = await signup({
+          username: document.querySelector("#username").value,
+          email: document.querySelector("#email").value,
+          password: document.querySelector("#password").value,
+          role: document.querySelector("#role").value,
+        })
+        if (data) {
+          toastr.success("Đăng ký thành công");
+          setTimeout(function () {
+            window.location.href = "/signin";
+          }, 1000)
+        }
+      } catch (error) {
+        toastr.error("Đăng ký thất bại!");
+        document.querySelector("#checkUser").innerHTML = "Tài khoản đã tồn tại"
+      }
     });
   }
 }

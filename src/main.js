@@ -1,6 +1,6 @@
 import Navigo from "navigo";
+import addProduct from "./admin/page/product/addproduct";
 import DashBoard from "./admin/page/dashboard";
-import addPhone from "./admin/page/navbar/addphone";
 import listUser from "./admin/page/user/listuser";
 import SignUpAdmin from "./admin/page/user/signup";
 import ForgotPass from "./client/login/forgot";
@@ -8,6 +8,9 @@ import SignIn from "./client/login/signin";
 import SignUp from "./client/login/signup";
 import Detail from "./client/page/detail";
 import Home from "./client/page/home";
+import listProduct from "./admin/page/product/listproduct";
+import categories from "./admin/page/category/categorys";
+import editProduct from "./admin/page/product/editproduct";
 const routes = new Navigo("/", { linksSelector: "a" });
 const render = async (content, id) => {
     document.querySelector("#app").innerHTML = await content.print(id);
@@ -34,8 +37,11 @@ routes.on({
     "forgotpass": () => render(ForgotPass),
     "detail": () => render(Detail),
     "/admin": () => render(DashBoard),
-    "/admin/addphone": () => render(addPhone),
     "/admin/listUser": () => render(listUser),
     "/admin/signup": () => render(SignUpAdmin),
+    "/admin/add-product": () => render(addProduct),
+    "/admin/list-product": () => render(listProduct),
+    "/admin/product/edit/:id": ({ data }) => render(editProduct, data.id),
+    "/admin/category": () => render(categories),
 });
 routes.resolve();
