@@ -2,7 +2,7 @@ import Logo from "./logo";
 import Navbar from "./navbar";
 import toastr from "toastr";
 import "toastr/build/toastr.min.css";
-import { reRender } from "../../utils";
+import { reRender } from "../../utils/reRender";
 const Header = {
   async print() {
     return /*html*/ `
@@ -21,12 +21,10 @@ const Header = {
               <span><a href="#" class="text-xl">1900 999 111</a></span>
             </div>
           </div>
-          <div class="group mt-3 text-white">
-            <a href="#">
+          <div class=" mt-3 text-white">
+            <a href="/cart">
               <p><i class="fas fa-cart-plus fa-2x pt-2 mx-auto"></i></p>
-              <div class=" mt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:mt-0 transition-all decoration-slate-500">
-                <p class="absolute bg-gray-100 rounded text-black h-10 menu-title mr-5 w-40 leading-10">Giỏ hàng của bạn</p>
-              </div>
+              <p class="text-sm text-center pt-1">Giỏ hàng<p/>
             </a>
           </div>
           <div class="border-r-2 max-h-[60px] max-w-0 mt-3 mx-0"></div>
@@ -68,13 +66,17 @@ const Header = {
   afterRender() {
     const username = document.querySelector("#username");
     const logout = document.querySelector("#logout");
-    username.innerHTML = JSON.parse(localStorage.getItem('user')).username;
-    logout.addEventListener("click", () => {
+    if (localStorage.getItem('user')) {
+      username.innerHTML = JSON.parse(localStorage.getItem('user')).username;
+      logout.addEventListener("click", () => {
 
-      toastr.success("Đã đăng xuất");
-      localStorage.removeItem("user");
-      reRender(Header, "header")
-    })
+        toastr.success("Đã đăng xuất");
+        localStorage.removeItem("user");
+        reRender(Header, "header")
+      })
+    }
+
+
   }
 }
 export default Header;

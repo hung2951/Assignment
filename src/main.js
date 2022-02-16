@@ -11,6 +11,8 @@ import Home from "./client/page/home";
 import listProduct from "./admin/page/product/listproduct";
 import categories from "./admin/page/category/categorys";
 import editProduct from "./admin/page/product/editproduct";
+import Cart from "./client/page/cart";
+import ProductCates from "./client/page/productCates";
 const routes = new Navigo("/", { linksSelector: "a" });
 const render = async (content, id) => {
     document.querySelector("#app").innerHTML = await content.print(id);
@@ -32,10 +34,10 @@ routes.on("/admin/*", () => { }, {
 })
 routes.on({
     "/": () => render(Home),
-    "signin": () => render(SignIn),
-    "signup": () => render(SignUp),
-    "forgotpass": () => render(ForgotPass),
-    "detail": () => render(Detail),
+    "/signin": () => render(SignIn),
+    "/signup": () => render(SignUp),
+    "/forgotpass": () => render(ForgotPass),
+    "/detail/:id": ({ data }) => render(Detail, data.id),
     "/admin": () => render(DashBoard),
     "/admin/listUser": () => render(listUser),
     "/admin/signup": () => render(SignUpAdmin),
@@ -43,5 +45,9 @@ routes.on({
     "/admin/list-product": () => render(listProduct),
     "/admin/product/edit/:id": ({ data }) => render(editProduct, data.id),
     "/admin/category": () => render(categories),
+    //giỏ hàng
+    "/cart": () => render(Cart),
+    //
+    "/:name/:id": ({ data }) => render(ProductCates, data.id),
 });
 routes.resolve();

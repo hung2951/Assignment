@@ -3,7 +3,7 @@ import { getCatesType } from "../../api/category";
 const Navbar = {
     async print() {
         const dataPhone = await getCatesType("phone");
-        const dataLap = await getCatesType("lap");
+        const dataLap = await getCatesType("laptop");
         const dataAccessory = await getCatesType("accessory");
         const dataSound = await getCatesType("sound");
         const dataSale = await getCatesType("sale");
@@ -11,7 +11,7 @@ const Navbar = {
             <div class="mb-5">
             <ul class="mx-auto flex relative bg-[#00483d] w-[1200px] justify-around items-center rounded-lg pt-1 text-white h-14">
                 <li class="group">
-                    <a href="" class="nav-bar">
+                    <a class="nav-bar">
                     <p><i class="fas fa-mobile-alt"></i></p>
                     <p class="">Điện thoại</p>
                     </a>
@@ -21,7 +21,7 @@ const Navbar = {
                         <li class="menu-item-title">Hãng sản xuất</li>
                         <div class="menu-item-info grid grid-cols-5 text-sm leading-8 ">
                         ${dataPhone.data.map((post) =>/*html*/`
-                            <li><a href="">${post.cateName}</a></li>
+                            <li><a href="/${post.cateName}/${post.id}">${post.cateName}</a></li>
                         `).join("")}
                         
                         </div>
@@ -35,7 +35,7 @@ const Navbar = {
                     </div>
                 </li>
                 <li class="group">
-                    <a href="" class="nav-bar">
+                    <a class="nav-bar">
                     <p><i class="fas fa-laptop"></i></p>
                     <p>Laptop</p>
                     </a>
@@ -45,7 +45,7 @@ const Navbar = {
                         <li class="menu-item-title">Hãng sản xuất</li>
                         <div class="menu-item-info grid grid-cols-4 text-sm leading-8 ">
                         ${dataLap.data.map((post) =>/*html*/`
-                            <li><a href="">${post.cateName}</a></li>
+                            <li><a href="/${post.cateName}/${post.id}">${post.cateName}</a></li>
                         `).join("")}
                         </div>
                     </ul>
@@ -58,7 +58,7 @@ const Navbar = {
                     </div>
                 </li>
                 <li class="group ">
-                    <a href="" class="nav-bar">
+                    <a class="nav-bar">
                     <p><i class="fas fa-charging-station"></i></p>
                     <p>Phụ kiện</p>
                     </a>
@@ -67,14 +67,14 @@ const Navbar = {
                     <ul class="menu-item">
                         <div class="menu-item-info grid grid-cols-4 text-sm leading-8 font-bold">
                             ${dataAccessory.data.map((post) =>/*html*/`
-                                <li><a href="">${post.cateName}</a></li>
+                                <li><a href="/${post.cateName}/${post.id}">${post.cateName}</a></li>
                             `).join("")}
                         </div>
                     </ul>
                     </div>
                 </li>
                 <li class="group">
-                    <a href="" class="nav-bar">
+                    <a class="nav-bar">
                     <p><i class="fas fa-headphones-alt"></i></p>
                     <p>Âm thanh</p>
                     </a>
@@ -83,21 +83,21 @@ const Navbar = {
                     <ul class="menu-item">
                         <div class="menu-item-info grid grid-cols-4 text-sm leading-8 font-bold">
                             ${dataSound.data.map((post) =>/*html*/`
-                                <li><a href="">${post.cateName}</a></li>
+                                <li><a href="/${post.cateName}/${post.id}">${post.cateName}</a></li>
                             `).join("")}
                         </div>
                     </ul>
                     </div>
                 </li>
                 <li class="group">
-                    <a href="" class="nav-bar">
+                    <a class="nav-bar">
                     <p><i class="fas fa-sim-card"></i></p>
                     <p>Sim thẻ</p>
                     </a>
                 </li>
                  
                 <li class="group">
-                    <a href="" class="nav-bar">
+                    <a class="nav-bar">
                     <p><i class="fas fa-bolt"></i></p>
                     <p>Flash sale</p>
                     </a>
@@ -107,7 +107,7 @@ const Navbar = {
                         <li class="menu-item-title uppercase"><a href="">ưu đãi hot</a></li>
                         <div class="menu-item-info text-sm leading-8">
                             ${dataSale.data.map((post) =>/*html*/`
-                                    <li><a href="">${post.cateName}</a></li>
+                                    <li><a href="/${post.cateName}/${post.id}">${post.cateName}</a></li>
                                 `).join("")}
                         </div>
                     </ul>

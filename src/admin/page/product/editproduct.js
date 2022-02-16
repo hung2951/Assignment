@@ -18,8 +18,10 @@ const editProduct = {
             </header>
             <main>
                 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                <a href="/admin/list-product" class="underline hover:text-blue-600">Quay lại&raquo;</a>
                     <!-- Replace with your content -->
                     <div class="px-4 py-6 sm:px-0">
+                    
                         <div class="">
                             <form id="formEditProduct">
                             <input type="hidden" name="id" value="${data.id}">
@@ -33,7 +35,7 @@ const editProduct = {
                                 <label for="">Loại sản phẩm:
                                     <select id="cates" name="cates" class="capitalize">
                                        ${categorys.data.map((post) =>/*html*/`
-                                        <option value="${post.id}" ${data.catesId == post.id ? "selected" : ""}>${post.catesName}</option>
+                                        <option value="${post.id}" ${data.productCateId == post.id ? "selected" : ""}>${post.cateName}</option>
 
                                        `)}
                                     </select>
@@ -43,13 +45,19 @@ const editProduct = {
                                     <div  id="#formEditProduct-img">
                                         <img src="${data.img}" width="150px">
                                         <input type="hidden" name="imgOld" value="${data.img}">
-                                        <input type="file" class="h-14" id="img" name="img">
+                                        <input type="file" class="h-14" name="img">
                                     </div>
                                     
-                                </label>   
-                                
-                                <p id="checkImg"></p>                                               
-                                <a href="/admin/list-product" >Hủy</a>
+                                </label>  
+                                <div>
+                                    <label id="btnProduct">
+                                        Sản phẩm mới
+                                        <input type="radio" value="1" id="productHot" name="productHot">  
+                                    </label> 
+                                    <label id="cancel" class="underline text-sm text-red-600">Hủy
+                                        <input hidden type="radio" value="0" checked id="productHot" name="productHot">
+                                    </label>
+                                </div>                                                  
                                 <button type="submit">Lưu</button>
                             </form>
                         </div>
@@ -64,7 +72,14 @@ const editProduct = {
 
         const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/hungtv/image/upload";
         const CLOUDINARY_PRESET = "s9esu1dx";
-
+        document.querySelector("#cancel").style.display = 'none'
+        document.querySelector("#btnProduct").onclick = () => {
+            document.querySelector("#cancel").style.display = 'inline'
+        };
+        document.querySelector("#cancel").onclick = function () {
+            console.log(12)
+            document.querySelector("#cancel").style.display = "none"
+        };
         formEditProduct.addEventListener('submit', async (e) => {
             e.preventDefault();
             let image = "";
@@ -93,11 +108,12 @@ const editProduct = {
 
             //       call api thêm bài viết
             update({
-                id: formEditProduct.id.value,
+                "id": formEditProduct.id.value,
                 "name": document.querySelector('#name').value,
                 "img": image,
                 "price": document.querySelector('#price').value,
-                "cateId": document.querySelector('#cates').value,
+                "productCateId": document.querySelector('#cates').value,
+                "hot": formEditProduct.productHot.value,
             }).then(res => window.location.href = "/admin/list-product");
         })
     }

@@ -1,14 +1,22 @@
+import { get } from "../../api/product";
+import { $ } from "../../utils"
 import Footer from "../components/footer";
 import Header from "../components/header";
+import { addToCart } from "../../utils/cart";
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 
 const Detail = {
-    print(){
+    async print(id) {
+        const { data } = await get(id);
         return /*html*/ `
         <div class="bg-[#0b8c5d]">
-            ${Header.print()}
+            <header>
+                ${await Header.print()}
+            </header>
             <div class="detail w-[1200px] mx-auto mt-5 bg-white rounded-lg px-5 pt-5 pb-10">
                 <div class="border-b pb-4 font-bold text-2xl">
-                <p>iPhone 13 256GB</p>
+                <p>${data.name}</p>
                 </div>
                 <div class="grid grid-cols-2 gap-5 pt-5">
                 <div>
@@ -54,15 +62,15 @@ const Detail = {
                         <a href="">Xem tại đây</a> </span>]</p>
                     </div>
                     <div class="mt-5 grid grid-cols-2 gap-1 text-center">
-                    <button class="h-14 bg-red-600 hover:bg-red-700 text-white rounded-sm leading-10 uppercase font-bold"><a
-                        href="">Mua ngay</a></button>
+                    <button id="btnAddToCart" class="h-14 bg-red-600 hover:bg-red-700 text-white rounded-sm leading-10 uppercase font-bold"><a
+                        >Mua ngay</a></button>
                     <button class="h-14 bg-[#f28902] hover:bg-[#f29202f5] text-white rounded-sm leading-10 uppercase font-bold"><a
-                        href="">Mua trả góp 0%</a></button>
+                        >Mua trả góp 0%</a></button>
                     </div>
                 </div>
                 </div>
                 <div class="border-t border-[#ccc] mt-5">
-                <div class="font-bold text-xl pt-5">Bình luận về iPhone 13 256GB</div>
+                <div class="font-bold text-xl pt-5">Bình luận về ${data.name}</div>
                 <form class="flex relative">
                     <textarea class="border border-[#ccc] rounded-sm w-full mt-5 h-20 pl-2 pr-40" placeholder="Nhập bình luận của bạn..."
                     name="" id=""></textarea>
@@ -81,6 +89,15 @@ const Detail = {
             ${Footer.print()}
         </div>
         `
+    },
+    afterRender(id) {
+        $("#btnAddToCart").addEventListener('click', async () => {
+            const { data } = await get(id);
+            addToCart({ ...data, quantity: 1 }, () => {
+                toastr.success(`Đã thêm ${data.name} vào giỏ hàng!`)
+            });
+        });
+        Header.afterRender();
     }
 }
 export default Detail;

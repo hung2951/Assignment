@@ -18,7 +18,7 @@ const Home = {
             </div>
           </div>
           <div class="product-sale bg-white rounded-lg">
-            ${Hot.print()}
+            ${await Hot.print()}
           </div>
                            
           <figure class="banner2">

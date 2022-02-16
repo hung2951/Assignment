@@ -15,32 +15,199 @@
       "id": "8"
     }
   ],
-  "products": [],
+  "products": [
+    {
+      "id": "1",
+      "name": "iPhone 12 Pro Max 128GB",
+      "img": "http://res.cloudinary.com/hungtv/image/upload/v1644908240/kcnojivjxwudvquo1pwu.jpg",
+      "price": "23000000",
+      "productCateId": "1",
+      "hot": "1"
+    },
+    {
+      "id": "N0oUfII",
+      "name": "tai nghe",
+      "img": "http://res.cloudinary.com/hungtv/image/upload/v1644933578/pkv1agj5s02jw6f15yuf.jpg",
+      "price": "1234",
+      "productCateId": "BceiQ5B",
+      "hot": "1"
+    }
+  ],
   "productCates": [
     {
-      "cateName": "SamSung",
+      "cateName": "iPhone",
+      "cateType": "phone",
+      "id": "1"
+    },
+    {
+      "cateName": "XOR",
       "cateType": "phone",
       "id": "2"
     },
     {
-      "cateName": "Xiaomi",
+      "cateName": "Samsung",
       "cateType": "phone",
       "id": "3"
     },
     {
-      "cateName": "Asus",
-      "cateType": "laptop",
+      "cateName": "Xiaomi",
+      "cateType": "phone",
       "id": "4"
     },
     {
-      "cateName": "Macbook",
-      "cateType": "laptop",
+      "cateName": "realme",
+      "cateType": "phone",
       "id": "5"
     },
     {
-      "cateName": "Apple",
+      "cateName": "Philips",
       "cateType": "phone",
       "id": "6"
+    },
+    {
+      "cateName": "Vivo",
+      "cateType": "phone",
+      "id": "7"
+    },
+    {
+      "cateName": "Itel",
+      "cateType": "phone",
+      "id": "8"
+    },
+    {
+      "cateName": "Masstel",
+      "cateType": "phone",
+      "id": "9"
+    },
+    {
+      "cateName": "BPhone",
+      "cateType": "phone",
+      "id": "10"
+    },
+    {
+      "cateName": "TECNO",
+      "cateType": "phone",
+      "id": "11"
+    },
+    {
+      "cateName": "Energizer",
+      "cateType": "phone",
+      "id": "12"
+    },
+    {
+      "cateName": "OPPO",
+      "cateType": "phone",
+      "id": "13"
+    },
+    {
+      "cateName": "Blackberry",
+      "cateType": "phone",
+      "id": "14"
+    },
+    {
+      "cateName": "Nokia",
+      "cateType": "phone",
+      "id": "15"
+    },
+    {
+      "cateName": "MacBook",
+      "cateType": "laptop",
+      "id": "16"
+    },
+    {
+      "cateName": "Dell",
+      "cateType": "laptop",
+      "id": "17"
+    },
+    {
+      "cateName": "iMac 2021",
+      "cateType": "laptop",
+      "id": "18"
+    },
+    {
+      "cateName": "Microsoft",
+      "cateType": "laptop",
+      "id": "19"
+    },
+    {
+      "cateName": "Lenovo",
+      "cateType": "laptop",
+      "id": "20"
+    },
+    {
+      "cateName": "MSI",
+      "cateType": "laptop",
+      "id": "21"
+    },
+    {
+      "cateName": "ASUS",
+      "cateType": "laptop",
+      "id": "22"
+    },
+    {
+      "cateName": "GIGABYTE",
+      "cateType": "laptop",
+      "id": "23"
+    },
+    {
+      "cateName": "HP",
+      "cateType": "laptop",
+      "id": "24"
+    },
+    {
+      "cateName": "phụ kiện apple",
+      "cateType": "accessory",
+      "id": "w4udOIP"
+    },
+    {
+      "cateName": "miếng dán màn hình",
+      "cateType": "accessory",
+      "id": "oEAK7eJ"
+    },
+    {
+      "cateName": "củ sạc, dây cáp",
+      "cateType": "accessory",
+      "id": "dxm5oiI"
+    },
+    {
+      "cateName": "phụ kiện học sinh",
+      "cateType": "accessory",
+      "id": "w9JVV4G"
+    },
+    {
+      "cateName": "phụ kiện máy tính",
+      "cateType": "accessory",
+      "id": "ysJZJyq"
+    },
+    {
+      "cateName": "tai nghe",
+      "cateType": "accessory",
+      "id": "BceiQ5B"
+    },
+    {
+      "cateName": "Loa",
+      "cateType": "sound",
+      "id": "RL7TcUE"
+    },
+    {
+      "cateName": "Khuyến mại cuối tuần",
+      "cateType": "sale",
+      "id": "QqbWsl8"
+    },
+    {
+      "cateName": "Khuyến mại Laptop",
+      "cateType": "sale",
+      "id": "qzAzxXv"
+    },
+    {
+      "cateName": "Tai nghe",
+      "cateType": "sound",
+      "id": "aS2Mzmn"
+    },
+    {
+      "cateName": "Khuyến mại dành cho học sinh, sinh viên",
+      "cateType": "sale",
+      "id": "oP6DDmp"
     }
   ]
 }

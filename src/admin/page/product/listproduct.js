@@ -1,5 +1,5 @@
 import { getAll, remove } from "../../../api/product";
-import { reRender } from "../../../utils";
+import { reRender } from "../../../utils/reRender";
 import HeaderAdmin from "../../components/header";
 
 const listProduct = {
