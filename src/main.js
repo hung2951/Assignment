@@ -13,6 +13,7 @@ import categories from "./admin/page/category/categorys";
 import editProduct from "./admin/page/product/editproduct";
 import Cart from "./client/page/cart";
 import ProductCates from "./client/page/productCates";
+import Search from "./client/page/search";
 const routes = new Navigo("/", { linksSelector: "a" });
 const render = async (content, id) => {
     document.querySelector("#app").innerHTML = await content.print(id);
@@ -49,5 +50,7 @@ routes.on({
     "/cart": () => render(Cart),
     //
     "/:name/:id": ({ data }) => render(ProductCates, data.id),
+    //search
+    "/search": ({ value }) => render(Search, value),
 });
 routes.resolve();

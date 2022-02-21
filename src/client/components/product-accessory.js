@@ -1,5 +1,5 @@
 const Accessory = {
-    print(){
+    print() {
         return /*html*/`
         <div class="accessory">
             <div class="accessory-title">
@@ -60,6 +60,49 @@ const Accessory = {
                     <p class="accessory-item-name">Thẻ nhớ - USB</p>
                 </a>
                 </div>
+                <div class="text-center group">
+                <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                </a>
+                </div>
+                <div class="text-center group">
+                <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                </a>
+                </div>
+                <div class="text-center group">
+                <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                </a>
+                </div>
+                <div class="text-center group">
+                <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                </a>
+                </div>
+                <div class="text-center group">
+                <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                </a>
+                </div>
+                <div class="text-center group">
+                <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                </a>
+                </div>
+                <div class="text-center group">
+                <a href="">
+                    <p class="accessory-item-icon"><i class="fas fa-sim-card fa-3x"></i></p>
+                    <p class="accessory-item-name">Thẻ nhớ - USB</p>
+                </a>
+                </div>
+                
             </div>
         </div>
         `

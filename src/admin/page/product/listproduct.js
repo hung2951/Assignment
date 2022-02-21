@@ -1,4 +1,5 @@
 import { getAll, remove } from "../../../api/product";
+import { formatPrice } from "../../../utils/formatPrice";
 import { reRender } from "../../../utils/reRender";
 import HeaderAdmin from "../../components/header";
 
@@ -55,7 +56,7 @@ const listProduct = {
                                     </td>
                                     
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">${post.price} <u>đ</u></div>
+                                        <div class="text-sm text-gray-900">${formatPrice(`${post.price}`)} <u>đ</u></div>
                                     </td>   
                                     <td>
                                       <button class="hover:text-blue-600 underline text-sm"><a href="/admin/product/edit/${post.id}">Sửa</a></button>

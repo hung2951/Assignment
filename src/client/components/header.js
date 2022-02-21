@@ -9,10 +9,10 @@ const Header = {
         
         <div class="bg-[#00483d] rounded-b-lg flex justify-evenly w-[1200px] m-auto mb-4 h-[90px]">
           ${Logo.print()}
-          <form action="" class="w-96 pt-5 flex">
-            <input type="text" class="w-[90%] h-10 pl-2" placeholder="Tìm kiếm sản phẩm...">
-            <input type="submit" value="Tìm kiếm" class="border-2 max-h-10 text-white px-3 hover:text-[#39ebd07a]">
-            <!-- <button class="h-9" type="submit"><a href="" class="border-2"><i class="fas fa-search text-white"></i></a></button>  -->
+          <form class="w-96 pt-5 flex" id="formSearch" action="/search">
+            <input type="text" name="value" id="querySearch" class="w-[90%] h-10 pl-2" placeholder="Tìm kiếm sản phẩm...">
+            <input type="submit" id="btnSearch" value="Tìm kiếm" class="border-2 max-h-10 text-white px-3 hover:text-[#39ebd07a]">
+            <!-- <button class="h-9"><a class="border-2"><i class="fas fa-search text-white"></i></a></button>  -->
           </form>
           <div class="phone-sp flex mt-3 border-r-2 px-10 max-h-[60px]">
             <p><i class="fas fa-phone-alt text-white px-3 pt-5"></i></p>
@@ -75,8 +75,6 @@ const Header = {
         reRender(Header, "header")
       })
     }
-
-
   }
 }
 export default Header;

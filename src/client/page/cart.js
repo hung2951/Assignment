@@ -1,5 +1,6 @@
 import { $ } from "../../utils";
 import { decreaseItemInCart, increaseItemInCart, removeItemInCart } from "../../utils/cart";
+import { formatPrice } from "../../utils/formatPrice";
 import { reRender } from "../../utils/reRender";
 import Footer from "../components/footer";
 import Header from "../components/header";
@@ -38,7 +39,7 @@ const Cart = {
                     ${cart.map((item) => /*html*/`
                         <tr>
                             <td><img src="${item.img}" width="100px" class="inline">${item.name}</td>
-                            <td class="px-4">${item.price}</td>
+                            <td class="px-4 font-bold text-red-600">${formatPrice(`${item.price}`)} <u>đ</u></td>
                             <td>
                                 <button  data-id="${item.id}" class="btn decrease text-xl pr-2">-</button>
                                 ${item.quantity}    
@@ -58,7 +59,7 @@ const Cart = {
                         <td class="font-bold">
                             Tổng:
                         </td>
-                        <td>${tong}</td>
+                        <td class="font-bold text-red-600 text-xl">${formatPrice(`${tong}`)} <u>đ</u></td>
                     </tr>
                 </tfoot>
             `}

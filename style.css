@@ -41,12 +41,6 @@ footer div{
 .menu-item-info li a{
     @apply hover:text-[#002c25] hover:text-base hover:font-bold duration-200;
 }
-.apple-product-item-title a p{
-    @apply hover:text-[#0041cc] px-2 pb-2 font-bold;
-}
-.apple-product-item-title span{
-    @apply text-red-500 font-bold text-xl;
-}
 .apple-product-item-img{
     @apply overflow-hidden;
 }
@@ -63,7 +57,7 @@ footer div{
     @apply text-sm group-hover:text-[#0b8c5d];
 }
 .accessory-item-icon{
-    @apply text-[#002c25e0] bg-[#ececec] rounded-lg mb-2 group-hover:bg-white group-hover:border group-hover:border-[#0b8c5d];
+    @apply text-[#002c25e0] border border-transparent bg-[#ececec] rounded-lg mb-2 group-hover:bg-white group-hover:border group-hover:border-[#0b8c5d];
 }
 .accessory-item-icon i{
     @apply py-5;
@@ -94,7 +88,7 @@ footer div{
 #productHot{
     @apply w-5 mr-5 my-5 h-5
 }
-#checkName,#checkImg{
+#checkName,#checkPrice,#checkImg{
     @apply text-red-600 text-sm
 }
 .cart{

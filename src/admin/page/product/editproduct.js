@@ -43,8 +43,8 @@ const editProduct = {
                                 
                                 <label for="">Hình ảnh:
                                     <div  id="#formEditProduct-img">
-                                        <img src="${data.img}" width="150px">
-                                        <input type="hidden" name="imgOld" value="${data.img}">
+                                        <img id="imgPreview" width="300px" src="${data.img}">
+                                        <input type="hidden" id="imgOld" name="imgOld" value="${data.img}">
                                         <input type="file" class="h-14" name="img">
                                     </div>
                                     
@@ -69,7 +69,7 @@ const editProduct = {
     },
     afterRender(id) {
         const formEditProduct = document.querySelector('#formEditProduct');
-
+        let imgLink = "";
         const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/hungtv/image/upload";
         const CLOUDINARY_PRESET = "s9esu1dx";
         document.querySelector("#cancel").style.display = 'none'
@@ -80,6 +80,11 @@ const editProduct = {
             console.log(12)
             document.querySelector("#cancel").style.display = "none"
         };
+        // img preview
+        formEditProduct.img.addEventListener("change", function (e) {
+            imgPreview.src = URL.createObjectURL(e.target.files[0])
+        })
+        //
         formEditProduct.addEventListener('submit', async (e) => {
             e.preventDefault();
             let image = "";
@@ -100,9 +105,9 @@ const editProduct = {
                         "Content-Type": "application/form-data"
                     }
                 })
-                image = response.data.url
+                imgLink = response.data.url
             } else {
-                image = formEditProduct.imgOld.value;
+                imgLink = formEditProduct.imgOld.value;
             }
             // call api cloudinary
 
@@ -110,7 +115,7 @@ const editProduct = {
             update({
                 "id": formEditProduct.id.value,
                 "name": document.querySelector('#name').value,
-                "img": image,
+                "img": imgLink,
                 "price": document.querySelector('#price').value,
                 "productCateId": document.querySelector('#cates').value,
                 "hot": formEditProduct.productHot.value,

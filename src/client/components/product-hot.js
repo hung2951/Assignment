@@ -1,4 +1,5 @@
 import { getByHot } from "../../api/product";
+import { formatPrice } from "../../utils/formatPrice";
 
 const Hot = {
     async print() {
@@ -21,7 +22,7 @@ const Hot = {
                                 <p>${post.name}</p>
                             </a>
                             <div class="flex justify-center">
-                                <p class="text-red-600 font-bold text-xl">${post.price} <u>đ</u></p>
+                                <p class="text-red-600 font-bold text-xl">${formatPrice(`${post.price}`)}  <u>đ</u></p>
                             </div>
                         </div>
                     </div>        

@@ -24,7 +24,7 @@ const Home = {
           <figure class="banner2">
             <img class="w-full" src="https://uqoojcos5nobj.vcdn.cloud/uploads/2022/01/1200-x-100-t%E1%BA%BFt-1.gif" alt="">
           </figure>
-          ${Apple.print()} 
+          ${await Apple.print()} 
           ${Accessory.print()}         
         </main>
         ${Footer.print()}
@@ -33,6 +33,7 @@ const Home = {
   },
   afterRender() {
     Header.afterRender();
+    Apple.afterRender();
   }
 }
 export default Home;

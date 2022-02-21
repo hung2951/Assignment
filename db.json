@@ -17,28 +17,55 @@
   ],
   "products": [
     {
-      "id": "1",
-      "name": "iPhone 12 Pro Max 128GB",
-      "img": "http://res.cloudinary.com/hungtv/image/upload/v1644908240/kcnojivjxwudvquo1pwu.jpg",
-      "price": "23000000",
-      "productCateId": "1",
+      "id": "5EhVfYy",
+      "name": "iphone 13 mini 128GB",
+      "img": "http://res.cloudinary.com/hungtv/image/upload/v1645251924/txf9zb9ll6fjzd4dtrxb.jpg",
+      "price": "22000000",
+      "productCateId": "r2jAbe1",
       "hot": "1"
     },
     {
-      "id": "N0oUfII",
-      "name": "tai nghe",
-      "img": "http://res.cloudinary.com/hungtv/image/upload/v1644933578/pkv1agj5s02jw6f15yuf.jpg",
-      "price": "1234",
-      "productCateId": "BceiQ5B",
+      "id": "4gV7Bh0",
+      "name": "iphone 13 128GB",
+      "img": "http://res.cloudinary.com/hungtv/image/upload/v1645113874/mqcnubhw2knkdg5qje10.jpg",
+      "price": "22500000",
+      "productCateId": "r2jAbe1",
       "hot": "1"
+    },
+    {
+      "id": "YTdxWJD",
+      "name": "iPhone 13 Pro Max 128GB",
+      "img": "http://res.cloudinary.com/hungtv/image/upload/v1645113930/rfpkqtufejrzyuzwniwu.jpg",
+      "price": "30900000",
+      "productCateId": "r2jAbe1",
+      "hot": "1"
+    },
+    {
+      "id": "cYXpTU2",
+      "name": "MacBook Pro 16 inch 2021 M1 Pro",
+      "img": "http://res.cloudinary.com/hungtv/image/upload/v1645348531/iiq0yireptxnszgl0vnd.jpg",
+      "price": "65000000",
+      "productCateId": "16",
+      "hot": "0"
+    },
+    {
+      "id": "LAAA7EW",
+      "name": "MacBook Pro 14 inch 2021 M1 Pro",
+      "img": "http://res.cloudinary.com/hungtv/image/upload/v1645348625/nbopyrsqlbfmgww5cb6g.jpg",
+      "price": "64000000",
+      "productCateId": "16",
+      "hot": "0"
+    },
+    {
+      "name": "Tai nghe HyperX Cloud Alpha S",
+      "img": "http://res.cloudinary.com/hungtv/image/upload/v1645352076/veafqyfeh8etxj6enrnd.jpg",
+      "price": "2500000",
+      "productCateId": "BceiQ5B",
+      "hot": "0",
+      "id": "zmDxnGS"
     }
   ],
   "productCates": [
-    {
-      "cateName": "iPhone",
-      "cateType": "phone",
-      "id": "1"
-    },
     {
       "cateName": "XOR",
       "cateType": "phone",
@@ -208,6 +235,11 @@
       "cateName": "Khuyến mại dành cho học sinh, sinh viên",
       "cateType": "sale",
       "id": "oP6DDmp"
+    },
+    {
+      "cateName": "iphone",
+      "cateType": "phone",
+      "id": "r2jAbe1"
     }
   ]
 }

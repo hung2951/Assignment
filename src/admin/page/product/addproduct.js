@@ -7,7 +7,6 @@ const addProduct = {
 
         const { data } = await getAllCates();
 
-
         return /*html*/ `
             <header class="bg-white shadow">
             ${HeaderAdmin.print()}
@@ -29,8 +28,9 @@ const addProduct = {
                                 </label>
                                 <p id="checkName"></p>
                                 <label for="">Giá:
-                                    <input type="number" min="0" id="price" value="0" name="price" placeholder="Giá sản phẩm">
+                                    <input type="number" min="0" id="price" name="price" placeholder="Giá sản phẩm">
                                 </label>
+                                <p id="checkPrice"></p>
                                 <label for="">Loại sản phẩm:
                                     <select id="cateId" name="cateId">
                                         ${data.map((post) =>/*html*/`
@@ -40,7 +40,8 @@ const addProduct = {
                                 </label>                              
                                       
                                 <label for="">Hình ảnh:
-                                    <input type="file" class="h-14" id="img" name="img">
+                                    <img id="imgPreview" width="300px" src="https://costaseafood.com.vn/uploads/no-image.jpg">
+                                    <input type="file" class="h-14 border-none" id="img" name="img">
                                 </label>   
                                 <p id="checkImg"></p>  
                                 <div>
@@ -64,7 +65,7 @@ const addProduct = {
     },
     afterRender() {
         const formAddProduct = document.querySelector('#formAddProduct');
-
+        let imgLink = "";
         const CLOUDINARY_API = "https://api.cloudinary.com/v1_1/hungtv/image/upload";
         const CLOUDINARY_PRESET = "s9esu1dx";
         document.querySelector("#cancel").style.display = "none"
@@ -76,40 +77,47 @@ const addProduct = {
             console.log(12)
             document.querySelector("#cancel").style.display = "none"
         };
+        // img preview
+        img.addEventListener("change", function (e) {
+            imgPreview.src = URL.createObjectURL(e.target.files[0])
+        })
+        //
         formAddProduct.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = formAddProduct.name.value;
             const price = formAddProduct.price.value;
-            const img = formAddProduct.img.value;
-            const productHot = formAddProduct.productHot.value;
-            console.log(productHot)
-            if (name == "") {
+            if (!name) {
                 document.querySelector("#checkName").innerHTML = "Vui lòng nhập tên sản phẩm!"
-
-            } else if (!formAddProduct.img.files[0]) {
+            }
+            else if (!price) {
+                document.querySelector("#checkPrice").innerHTML = "Vui lòng nhập giá sản phẩm!"
+            }
+            else if (!formAddProduct.img.files[0]) {
                 document.querySelector("#checkImg").innerHTML = "Vui lòng chọn ảnh!"
-                console.log(1)
             }
             else {
                 // Lấy giá trị input file
                 const file = formAddProduct.img.files[0];
+                if (file) {
+                    // append vào object formData
+                    const formData = new FormData();
+                    formData.append('file', file);
+                    formData.append('upload_preset', CLOUDINARY_PRESET)
 
-                // append vào object formData
-                const formData = new FormData();
-                formData.append('file', file);
-                formData.append('upload_preset', CLOUDINARY_PRESET)
 
+                    // call api cloudinary
+                    const { data } = await axios.post(CLOUDINARY_API, formData, {
+                        headers: {
+                            "Content-Type": "application/form-data"
+                        }
+                    });
+                    imgLink = data.url;
 
-                // call api cloudinary
-                const response = await axios.post(CLOUDINARY_API, formData, {
-                    headers: {
-                        "Content-Type": "application/form-data"
-                    }
-                })
+                }
                 // call api thêm bài viết
                 add({
                     "name": document.querySelector('#name').value,
-                    "img": response.data.url,
+                    "img": imgLink,
                     "price": document.querySelector('#price').value,
                     "productCateId": formAddProduct.cateId.value,
                     "hot": formAddProduct.productHot.value,
